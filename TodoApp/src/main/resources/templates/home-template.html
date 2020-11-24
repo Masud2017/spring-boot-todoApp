@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body class = "container">
+<div name = "main">
+<h1 class = "bg-danger text-center text-success">Welcome to my spring boot todo application</h1>
+	<div class = "row">
+		<div class = "col-sm-4">
+			<form method ="GET" action = "/add">
+				Enter your todo name:
+				<input type = "text" placeholder = "Enter your todo name" name ="name" id = "name" class ="form-control">
+				Select date:
+				<input type = "date" name= "date" id = "date" class = "form-control">
+				Enter author name:
+				<input type = "text" placeholder="Enter author name" name = "author" id ="author" class = "form-control">
+				<textarea rows = "12" class = "mt-sm-4" cols = "45" id = "desc" name ="desc"></textarea>
+				<input class = "btn btn-danger form-control mt-sm-4" type = "submit" value ="Add">
+			</form>
+			<form method ="GET" action = "/clear">
+				<input type = "submit" value = "deleteAll" class = "btn btn-danger form-control mt-sm-4">
+			</form>
+		</div>
+		<div class = "col-sm-8">
+				<div class = "card" th:each="item: ${items}">
+					<h3 clas = "card-body">${item}</h3>
+				</div>
+			
+		</div>
+	</div>
+</div>
+<div name = "footer" class = "text-center mt-sm-4">Copyright &copy from 2020</div>
+
+</body>
+</html>

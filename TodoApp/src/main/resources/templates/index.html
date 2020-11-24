@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Hewllo world
+<form th:action="@{/save-project}" th:object="${project}" method="post">
+    ...
+</form>
+</body>
+</html>
