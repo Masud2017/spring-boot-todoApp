@@ -17,7 +17,7 @@
 
 
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Spring boot todo app</title>
 </head>
 <body class = "container">
 <div name = "main">
@@ -39,8 +39,12 @@
 			</form>
 		</div>
 		<div class = "col-sm-8">
-				<div class = "card" th:each="item: ${items}">
-					<h3 clas = "card-body">${item}</h3>
+				<div class = "card mt-sm-4" th:each="item: ${items}">
+					<h3 class = "card-header text-center bg-primary" th:text="${item.name}"></h3>
+					<h4 class = "card-header" th:text = "${item.author}"></h4>
+					<div class = "card-header ml-auto">Date: <span th:text="${item.date}"></span> </div>
+					
+					<p class = "card-body" th:text="${item.desc}"/>
 				</div>
 			
 		</div>

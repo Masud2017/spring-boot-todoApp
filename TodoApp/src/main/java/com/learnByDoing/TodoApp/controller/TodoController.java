@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.learnByDoing.TodoApp.helperLib.Validator;
 import com.learnByDoing.TodoApp.model.Todo;
 import com.learnByDoing.TodoApp.service.TodoService;
 
@@ -19,6 +20,9 @@ import java.util.List;
 class TodoController {
 	@Autowired
 	TodoService todoService;
+	@Autowired 
+	Validator validator;
+	
 	@GetMapping("/")
 	public String index(Model model) {
 		model.addAttribute("project","This is a project");
@@ -38,15 +42,21 @@ class TodoController {
 	ModelAndView add(@ModelAttribute Todo todo,String name,String date, String author,String desc) {
 		Todo new_todo = new Todo();
 		System.out.println(desc);
-		new_todo.setName( name);
-		new_todo.setDate (date);
-		new_todo.setAuthor(author);
-		new_todo.setDesc(desc);
-		
-		todoService.insertData(new_todo);
+		if (validator.validateUsername(name) == false) {
+			
+			new_todo.setName( name);
+			new_todo.setDate (date);
+			new_todo.setAuthor(author);
+			new_todo.setDesc(desc);
+			
+			todoService.insertData(new_todo);
+		} else {
+			return new ModelAndView("forward:/");
+		}
 		
 		return new ModelAndView("forward:/");
 	}
+	
 	@RequestMapping(value="/clear")
 	public ModelAndView deleteAll() {
 		todoService.deleteAll();
