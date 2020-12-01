@@ -23,7 +23,24 @@ public class TodoService {
 		resList = todoRepo.findAll();
 		return resList;
 	}
+	
 	public void deleteAll( ) {todoRepo.deleteAll();}
+	
 	public List<Todo> getAll() {return todoRepo.findAll();}
 	
+	public void delete(long id) {
+		List<Todo> todo_list = new ArrayList<Todo>();
+		todo_list = todoRepo.findAll();
+		Todo res_val = new Todo();
+		
+		for (int i = 0; i < todo_list.size();i++) {
+			if (todo_list.get(i).getId() == id) {
+				res_val = todo_list.get(i);
+			}
+		}
+
+		todoRepo.delete(res_val);
+		
+		
+	}
 }

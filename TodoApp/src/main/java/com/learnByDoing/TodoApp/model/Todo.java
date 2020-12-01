@@ -14,7 +14,7 @@ import javax.persistence.Entity;
 public class Todo {
 	@Id
 	@GeneratedValue
-	private int id;
+	private long id;
 	
 	@Column(name="name")
 	private String name;
@@ -50,5 +50,8 @@ public class Todo {
 		this.author = author;
 	}
 	
+	 public long getId() {
+	        return this.id;
+	    }
 	
 }

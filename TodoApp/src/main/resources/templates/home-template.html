@@ -45,7 +45,11 @@
 					<div class = "card-header ml-auto">Date: <span th:text="${item.date}"></span> </div>
 					
 					<p class = "card-body" th:text="${item.desc}"/>
+					<form th:action = "@{'/delete/'+${item.id}}">
+						<input type = "submit" value = "Delete" class = "btn btn-danger ml-sm-2 mb-sm-2">
+					</form>
 				</div>
+				
 			
 		</div>
 	</div>
