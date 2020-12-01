@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+	.login-center {
+		margin-left:35%;
+		margin-right:35%;
+		margin-top:15%;
+	}
+</style>
+
+<meta charset="ISO-8859-1">
+<title>Login Todo Application</title>
+</head>
+<body>
+	<form th:action = "@{/login}" method ="GET" class = "login-center">
+		Enter your First name
+		<input type = "text" placeholder = "Enter your first name" name = "fname" id = "fname" class = "form-control">
+		Enter your last name : 
+		<input type = "text" placeholder = "Enter your last name" name = "lname" id = "lname" class = "form-control">
+		Enter your email:
+		<input type = "email" placeholder = "Enter your mail" name = "mail" id = "mail" class = "form-control">
+		<input type = "submit" value = "Login" class = "btn btn-danger mt-sm-4 form-control">		
+	</form>
+</body>
+</html>

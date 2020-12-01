@@ -9,7 +9,6 @@ import com.learnByDoing.TodoApp.model.Todo;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Service
 public class TodoService {
 	@Autowired
